@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainWindowController">
+   <children>
+      <TableView fx:id="tableViewActions" prefHeight="400.0" prefWidth="525.0">
+        <columns>
+            <TableColumn fx:id="tableColumnActionType" prefWidth="75.0" text="Typ akcji" />
+            <TableColumn fx:id="tableColumnFirstUse" prefWidth="75.0" text="Pierwsze wystąpienie" />
+          <TableColumn fx:id="tableColumnPointStart" prefWidth="75.0" text="Punkt startowy" />
+          <TableColumn fx:id="tableColumnPointEnd" prefWidth="75.0" text="Punkt koncowy" />
+            <TableColumn fx:id="tableColumnPeriodAndBuffer" prefWidth="75.0" text="Okres + bufor" />
+            <TableColumn fx:id="tableColumnRepetitions" prefWidth="75.0" text="Liczba powtórzeń" />
+            <TableColumn fx:id="tableColumnTimeToNextAction" prefWidth="75.0" text="Czas do następnej akcji" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="comboBoxActionType" layoutX="535.0" layoutY="10.0" onAction="#actionComboBoxActionType" prefWidth="150.0" promptText="Wybierz typ akcji" />
+      <Button fx:id="buttonSelectKey" layoutX="535.0" layoutY="40.0" mnemonicParsing="false" onAction="#actionButtonSelectKey" prefHeight="25.0" prefWidth="149.0" text="Podaj przycisk/klawisz" />
+      <TextField fx:id="textFieldSelectedKey" editable="false" focusTraversable="false" layoutX="535.0" layoutY="70.0" />
+      <Button fx:id="buttonPoint1" layoutX="535.0" layoutY="100.0" mnemonicParsing="false" onAction="#actionButtonPoint1" prefHeight="25.0" prefWidth="72.0" text="Punkt 1" visible="false" />
+      <Button fx:id="buttonPoint2" layoutX="612.0" layoutY="100.0" mnemonicParsing="false" onAction="#actionButtonPoint2" prefHeight="25.0" prefWidth="72.0" text="Punkt 2" visible="false" />
+      <TextField fx:id="textFieldFirstUse" layoutX="535.0" layoutY="130.0" promptText="Pierwsze wystąpienie (ms)" />
+      <TextField fx:id="textFieldPeriod" layoutX="535.0" layoutY="160.0" promptText="Okres (ms)" />
+      <TextField fx:id="textFieldBuffer" layoutX="535.0" layoutY="190.0" promptText="Bufor (ms)" />
+      <TextField fx:id="textFieldRepetitions" layoutX="535.0" layoutY="220.0" promptText="Liczba wystąpien (0=inf)" />
+      <Label fx:id="labelError" layoutX="537.0" layoutY="337.0" />
+      <Button fx:id="buttonAddAction" layoutX="535.0" layoutY="330.0" mnemonicParsing="false" onAction="#actionButtonAddAction" prefWidth="70.0" text="Dodaj" />
+      <Button fx:id="buttonDeleteAction" disable="true" layoutX="615.0" layoutY="330.0" mnemonicParsing="false" onAction="#actionButtonDeleteAction" prefWidth="70.0" text="Usuń" />
+      <Button fx:id="buttonStart" disable="true" layoutX="535.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionButtonStart" prefWidth="70.0" text="Start" />
+      <Button fx:id="buttonStop" disable="true" layoutX="615.0" layoutY="360.0" mnemonicParsing="false" onAction="#actionButtonStop" prefWidth="70.0" text="Stop" />
+   </children>
+</Pane>

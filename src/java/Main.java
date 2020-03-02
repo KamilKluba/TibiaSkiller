@@ -1,9 +1,19 @@
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
 import java.util.Random;
 
-public class Main {
+public class Main extends Application {
     public static void main(String[] args) throws InterruptedException {
         Robot robot1 = null;
         Robot robot2 = null;
@@ -33,7 +43,7 @@ public class Main {
                 finalRobot1.mousePress(InputEvent.BUTTON3_DOWN_MASK);
                 finalRobot1.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
                 try {
-                    Thread.sleep(180000 + random.nextInt(180000));
+                    Thread.sleep(120000 + random.nextInt(120000));
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
@@ -56,32 +66,43 @@ public class Main {
                 }
             }
         }).start();
+//
+//        new Thread(() -> {
+//            while(true) {
+//                finalRobot3.keyPress(17);
+//                finalRobot3.delay(100);
+//                finalRobot3.keyPress(38);
+//                finalRobot3.keyRelease(38);
+//                finalRobot3.keyRelease(17);
+//                try {
+//                    Thread.sleep(20000 + random.nextInt(20000));
+//                } catch (InterruptedException ex) {
+//                    ex.printStackTrace();
+//                }
+//                finalRobot3.keyPress(17);
+//                finalRobot3.delay(100);
+//                finalRobot3.keyPress(40);
+//                finalRobot3.keyRelease(40);
+//                finalRobot3.keyRelease(17);
+//                try {
+//                    Thread.sleep(20000 + random.nextInt(20000));
+//                } catch (InterruptedException ex) {
+//                    ex.printStackTrace();
+//                }
+//            }
+//        }).start();
 
-        new Thread(() -> {
-            while(true) {
-                finalRobot3.keyPress(17);
-                finalRobot3.delay(100);
-                finalRobot3.keyPress(38);
-                finalRobot3.keyRelease(38);
-                finalRobot3.keyRelease(17);
-                try {
-                    Thread.sleep(20000 + random.nextInt(20000));
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-                finalRobot3.keyPress(17);
-                finalRobot3.delay(100);
-                finalRobot3.keyPress(40);
-                finalRobot3.keyRelease(40);
-                finalRobot3.keyRelease(17);
-                try {
-                    Thread.sleep(20000 + random.nextInt(20000));
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-            }
-        }).start();
+//        launch(args);
+    }
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainWindowController.fxml"));
+        Pane pane = loader.load();
 
+        Scene scene = new Scene(pane);
+        primaryStage.setScene(scene);
+
+        primaryStage.show();
     }
 }
